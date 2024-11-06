@@ -1,0 +1,296 @@
+<%- include('partial/header') %>
+
+  <section style="background-image: url('images/aa.png');background-repeat: no-repeat;background-size: cover;">
+    <div class="container-lg">
+      <div class="row">
+        <div class="col-lg-6 pt-5 mt-5">
+          <h2 class="display-1 ls-1"><span class="fw-bold text-primary">School</span> Supplies at your <span class="fw-bold">Doorsteps</span></h2>
+          <p class="fs-4">Everything you need for a successful school year.</p>
+          <div class="d-flex gap-3">
+            <a href="/product" class="btn btn-primary text-uppercase fs-6 rounded-pill px-4 py-3 mt-3">Start Shopping</a>
+            <a href="#" class="btn btn-dark text-uppercase fs-6 rounded-pill px-4 py-3 mt-3">Join Now</a>
+          </div>
+          <div class="row my-5">
+            <div class="col">
+              <div class="row text-dark">
+                <div class="col-auto"><p class="fs-1 fw-bold lh-sm mb-0">1k+</p></div>
+                <div class="col"><p class="text-uppercase lh-sm mb-0">Product Varieties</p></div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row text-dark">
+                <div class="col-auto"><p class="fs-1 fw-bold lh-sm mb-0">10k+</p></div>
+                <div class="col"><p class="text-uppercase lh-sm mb-0">Happy Students</p></div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="row text-dark">
+                <div class="col-auto"><p class="fs-1 fw-bold lh-sm mb-0">5+</p></div>
+                <div class="col"><p class="text-uppercase lh-sm mb-0">Store Locations</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-3 g-0 justify-content-center">
+        <div class="col">
+          <div class="card border-0 bg-primary rounded-0 p-4 text-light">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <svg width="60" height="60"><use xlink:href="#notebooks"></use></svg>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-0">
+                  <h5 class="text-light">Wide Variety of Notebooks</h5>
+                  <p class="card-text">Find notebooks in every size and style for your needs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-0 bg-secondary rounded-0 p-4 text-light">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <svg width="60" height="60"><use xlink:href="#stationery"></use></svg>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-0">
+                  <h5 class="text-light">Stationery Essentials</h5>
+                  <p class="card-text">Pens, pencils, and all the writing tools you need.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card border-0 bg-danger rounded-0 p-4 text-light">
+            <div class="row">
+              <div class="col-md-3 text-center">
+                <svg width="60" height="60"><use xlink:href="#backpacks"></use></svg>
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-0">
+                  <h5 class="text-light">Durable Backpacks</h5>
+                  <p class="card-text">Carry everything with our top-quality backpacks.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="pb-5">
+      <div class="container-lg">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="section-header d-flex flex-wrap justify-content-between my-4">
+                      <h2 class="section-title">Best Selling Products</h2>
+                      <div class="d-flex align-items-center">
+                          <a href="/product" class="btn btn-primary rounded-1">View All</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+                      <!-- Loop through products -->
+                      <% products.slice(0, 5).forEach(product => { %>
+                      <div class="col">
+                          <div class="product-item">
+                              <figure>
+                                  <a href="index.html" title="<%= product.name %>">
+                                    <img src="<%= product.image %>" alt="<%= product.name %>" class="tab-image" style="width: 100%; height: 200px; object-fit: cover;">
+                                  </a>
+                              </figure>
+                              <div class="d-flex flex-column text-center">
+                                  <h3 class="fs-6 fw-normal"><%= product.name %></h3>
+                                  <div>
+                                      <span class="rating">
+                                          <!-- Add dynamic rating here if needed -->
+                                          <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                          <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                          <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                          <svg width="18" height="18" class="text-warning"><use xlink:href="#star-full"></use></svg>
+                                          <svg width="18" height="18" class="text-warning"><use xlink:href="#star-half"></use></svg>
+                                      </span>
+                                      <span>(4)</span>
+                                  </div>
+                                  <div class="d-flex justify-content-center align-items-center gap-2">
+                                      <del>$<%= product.price + 6 %></del> <!-- Assuming $6 is the discount -->
+                                      <span class="text-dark fw-semibold">$<%= product.price %></span>
+                                      <span class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10% OFF</span>
+                                  </div>
+                                  <div class="button-area p-3 pt-0">
+                                      <div class="row g-1 mt-2">
+                                          <div class="col-3">
+                                              <input type="number" name="quantity" class="form-control border-dark-subtle input-number quantity" value="1">
+                                          </div>
+                                          <div class="col-9">
+                                              <button type="button" class="btn btn-primary rounded-1 p-2 fs-7 btn-cart" data-id="<%= product.id %>">
+                                                  <svg width="18" height="18"><use xlink:href="#cart"></use></svg> Add to Cart
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <% }); %>
+                      <!-- End of product loop -->
+                  </div>
+                  <!-- /product-grid -->
+              </div>
+          </div>
+      </div>
+  </section>
+  <style>.product-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e1e1e1; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Add border radius */
+  }
+
+  .product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Optional: To change the image opacity on hover */
+  .product-item figure:hover img {
+    opacity: 0.8; /* Change opacity on hover */
+    transition: opacity 0.2s ease;
+  }
+
+  /* Add to Cart button animation */
+  .animate-cart {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Cart count scale-up animation */
+  .scale-up {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  .cart-icon {
+              position: relative;
+              display: inline-block;
+          }
+
+          #cartItemCount {
+              position: absolute;
+              top: -8px;
+              right: -8px;
+              background-color: red;
+              color: white;
+              padding: 2px 6px;
+              font-size: 12px;
+              border-radius: 50%;
+          }
+
+  </style>
+      <script>
+        // Array to store cart items
+      let cartItems = [];
+
+      // Function to handle adding products to the cart
+      // Function to handle adding products to the cart
+      function addToCart(productId, quantity, name, price) {
+        // Check if the product is already in the cart
+        const existingItem = cartItems.find(item => item.id === productId);
+        
+        if (existingItem) {
+          // Update quantity if the product is already in the cart
+          existingItem.quantity += quantity;
+        } else {
+          // Add the new product to the cart
+          cartItems.push({ id: productId, name: name, price: price, quantity: quantity });
+        }
+
+        // Update cart UI
+        updateCartUI();
+
+        // Trigger add-to-cart animation
+        triggerCartAnimation(productId);
+      }
+
+      // Function to handle the cart animation
+      function triggerCartAnimation(productId) {
+        // Find the cart button
+        const cartButton = document.querySelector(`.btn-cart[data-id="${productId}"]`);
+        
+        // Add animation class to the cart button
+        cartButton.classList.add('animate-cart');
+        
+        // Add a short animation to the cart count
+        const cartCount = document.getElementById('cartCount');
+        cartCount.classList.add('scale-up');
+
+        // Remove the animation class after the animation ends
+        setTimeout(() => {
+          cartButton.classList.remove('animate-cart');
+          cartCount.classList.remove('scale-up');
+        }, 300); // 300ms for animation duration
+      }
+
+      // Function to update the cart UI
+      function updateCartUI() {
+        // Update cart count
+        document.getElementById('cartCount').textContent = cartItems.length;
+
+        // Update cart items list
+        const cartItemsList = document.getElementById('cartItemsList');
+        cartItemsList.innerHTML = ''; // Clear previous items
+
+        let totalPrice = 0;
+
+        cartItems.forEach(item => {
+          // Calculate total price for the item
+          const itemTotalPrice = item.price * item.quantity;
+          totalPrice += itemTotalPrice;
+
+          // Create an item element
+          const cartItem = document.createElement('li');
+          cartItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'lh-sm');
+          cartItem.innerHTML = `
+            <div>
+              <h6 class="my-0">${item.name} (x${item.quantity})</h6>
+              <small class="text-muted">Price: $${item.price}</small>
+            </div>
+            <span class="text-muted">$${itemTotalPrice.toFixed(2)}</span>
+          `;
+
+          // Append to the cart items list
+          cartItemsList.appendChild(cartItem);
+        });
+
+        // Update total price
+        document.getElementById('totalPrice').textContent = `$${totalPrice.toFixed(2)}`;
+      }
+
+      // Attach event listeners to the Add to Cart buttons
+      document.querySelectorAll('.btn-cart').forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = parseInt(this.getAttribute('data-id'));
+          const quantity = parseInt(this.closest('.product-item').querySelector('.quantity').value);
+          const name = this.closest('.product-item').querySelector('h3').textContent;
+          const price = parseFloat(this.closest('.product-item').querySelector('.fw-semibold').textContent.replace('$', ''));
+
+          // Add the product to the cart
+          addToCart(productId, quantity, name, price);
+        });
+      });
+
+      // Optionally, clear the cart
+      document.getElementById('checkoutButton').addEventListener('click', function() {
+        // For checkout, you can submit the cart data or clear it after confirmation
+        cartItems = []; // Clear cart
+        updateCartUI();
+      });
+
+      </script>
